@@ -1,0 +1,45 @@
+body { margin: 0; }
+nav { 
+    background-color: rgb(160, 87, 229); 
+} 
+ul { list-style: none; } 
+a { color: white; 
+    text-decoration: none; 
+    font-size: larger; 
+    padding: 2em; 
+    display: inline-block; 
+} 
+a:hover, .current { background-color: blueviolet; }
+
+@media (min-width: 601px) {
+    ul {
+        display: flex;
+    }
+}
+@media (max-width: 600px) {
+    h1 {
+        font-size: larger;
+        text-align: center;
+    }
+    nav {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+    }
+    ul {
+        text-align: center;
+        margin: 0;
+        padding-left: 0; /* Ta bort onödig marginal för att centrera*/
+        list-style: none;
+    }
+    a {
+        font-size: small;
+    }
+    a:hover, .current { 
+       border-radius: 5px;
+       max-width: 450px;
+       width: 100%;
+    }
+
+}
