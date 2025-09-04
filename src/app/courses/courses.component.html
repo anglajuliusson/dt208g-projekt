@@ -1,5 +1,5 @@
 <h2>Kurser</h2>
-
+<div class="searchAndSelect">
 <div class="search">
     <h3>Filtrera kurser:</h3>
     <input type="text" placeholder="" [(ngModel)]="search" (input)="filterData()">
@@ -9,6 +9,7 @@
     <select [(ngModel)]="selectedSubject"(change)="filterData()">
         <option value="">Alla ämnen</option>
         <option *ngFor="let subj of subjects" [value]="subj">{{ subj }}</option></select>
+</div>
 </div>
 <div class="courses">
     <table>
