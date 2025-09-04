@@ -9,7 +9,7 @@ import { Courses } from '../model/courses';
 export class CoursesService {
 
 // Properties
-private url: string = "public/miun_courses.json";
+private url: string = "miun_courses.json";
 
   constructor(private http: HttpClient) { }
 
