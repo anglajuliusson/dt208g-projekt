@@ -1,1 +1,33 @@
-<p>courses works!</p>
+<h2>Kurser</h2>
+
+<div class="search">
+    <h3>Filtrera kurser:</h3>
+    <input type="text" placeholder="" [(ngModel)]="search" (input)="filterData()">
+</div>
+<div class="sort">
+    <h3>Ämne:</h3>
+</div>
+<div class="courses">
+    <table>
+        <thead>
+            <tr>
+                <th (click)="sortBy('courseCode')">Kod</th>
+                <th (click)="sortBy('courseName')">Kursnamn</th>
+                <th (click)="sortBy('points')">Poäng</th>
+                <th (click)="sortBy('subject')">Ämne</th>
+                <th>Kursplan</th>
+                <th>Lägg till</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let courses of sortedCourseList">
+                <td>{{ courses.courseCode}}</td>
+                <td>{{ courses.courseName}}</td>
+                <td>{{ courses.points}}</td>
+                <td>{{ courses.subject}}</td>
+                <td><a [href]="courses.syllabus" target="_blank">Kursplan</a></td>
+                <td><button>Lägg till</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
