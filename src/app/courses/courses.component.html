@@ -6,6 +6,9 @@
 </div>
 <div class="sort">
     <h3>Ämne:</h3>
+    <select [(ngModel)]="selectedSubject"(change)="filterData()">
+        <option value="">Alla ämnen</option>
+        <option *ngFor="let subj of subjects" [value]="subj">{{ subj }}</option></select>
 </div>
 <div class="courses">
     <table>

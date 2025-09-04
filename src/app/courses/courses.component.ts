@@ -16,6 +16,8 @@ export class CoursesComponent {
   sortedCourseList: Courses[] = []; // Sorterade listan
   search: string = '';
   sortCourseList: boolean = true; // Stigande, fallande
+  subjects: string[] = []; // Array med ämnen till dropdown
+  selectedSubject: string = ''; // Det valda ämnet, tom sträng = visar alla ämnen
 
   constructor(private http: HttpClient) {}
 
@@ -28,6 +30,11 @@ export class CoursesComponent {
       next: (data) => {
         this.courselist = data;
         this.sortedCourseList = [...data]; // Kopiera initialt
+
+      // Hämta unika ämnen
+        const allSubjects = data.map(course => course.subject); // Hämtar alla ämnen
+        this.subjects = Array.from(new Set(allSubjects)); // Tar bort dubbletter, konverterar tillbaka till en array
+    
       },
       error: () => {
         console.error('Fel vid hämtning av data');
@@ -38,12 +45,16 @@ export class CoursesComponent {
   // Filtrerar data direkt när användaren skriver
   filterData() {
     const phrase = this.search.toLowerCase();
-    this.sortedCourseList = this.courselist.filter(course =>
+    this.sortedCourseList = this.courselist.filter(course => {
+      const matchSearch =
       course.courseCode.toLowerCase().includes(phrase) ||
       course.courseName.toLowerCase().includes(phrase) ||
-      course.points.toString().toLowerCase().includes(phrase) ||
-      course.subject.toLowerCase().includes(phrase)
-    );
+      course.points.toString().toLowerCase().includes(phrase);
+      // Kolla om kursen matchar det valda ämnet (om ett ämne är valt)
+      const matchSubject = this.selectedSubject ? course.subject === this.selectedSubject : true;
+    // Returnera true om både söktext och ämnesfilter matchar
+    return matchSearch && matchSubject;
+    });
   }
 
   // Sortera efter valfritt fält
