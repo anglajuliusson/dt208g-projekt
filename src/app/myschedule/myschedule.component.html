@@ -1,1 +1,37 @@
-<p>myschedule works!</p>
+<h2>Mitt ramschema</h2>
+<div class="searchAndSelect">
+    <div class="search">
+        <h3>Filtrera kurser:</h3>
+        <input type="text" placeholder="" [(ngModel)]="search" (input)="filterData()">
+    </div>
+    <div class="sort">
+        <h3>Ämne:</h3>
+        <select [(ngModel)]="selectedSubject"(change)="filterData()">
+            <option value="">Alla ämnen</option>
+            <option *ngFor="let subj of subjects" [value]="subj">{{ subj }}</option></select>
+    </div>
+    </div>
+    <div class="courses">
+        <table>
+            <thead>
+                <tr>
+                    <th (click)="sortBy('courseCode')">Kod</th>
+                    <th (click)="sortBy('courseName')">Kursnamn</th>
+                    <th (click)="sortBy('points')">Poäng</th>
+                    <th (click)="sortBy('subject')">Ämne</th>
+                    <th>Kursplan</th>
+                    <th>Ta bort</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let courses of selectedCourses">
+                    <td>{{ courses.courseCode}}</td>
+                    <td>{{ courses.courseName}}</td>
+                    <td>{{ courses.points}}</td>
+                    <td>{{ courses.subject}}</td>
+                    <td><a [href]="courses.syllabus" target="_blank">Kursplan</a></td>
+                    <td><button (click)="removeCourse(courses.courseCode)">Ta bort</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
