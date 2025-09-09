@@ -3,6 +3,7 @@ import { Courses } from '../model/courses';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ScheduleService } from '../services/schedule.service';
 
 @Component({
   selector: 'app-courses',
@@ -19,7 +20,7 @@ export class CoursesComponent {
   subjects: string[] = []; // Array med ämnen till dropdown
   selectedSubject: string = ''; // Det valda ämnet, tom sträng = visar alla ämnen
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private scheduleService: ScheduleService) {}
 
   ngOnInit() {
     this.loadCourses();
@@ -74,5 +75,9 @@ export class CoursesComponent {
       const strB = b[field].toLowerCase();
       return this.sortCourseList ? strA.localeCompare(strB) : strB.localeCompare(strA);
     });
+  }
+  // Lägg till kurs i ramschema
+  addToSchedule(course: Courses) {
+    this.scheduleService.addCourse(course);
   }
 }
