@@ -9,7 +9,7 @@ export class ScheduleService {
   
   constructor() { 
     // Läs in från localstorage
-    const saved = localStorage.getItem('myschedule'); 
+    const saved = localStorage.getItem('mySchedule'); 
     if (saved) { this.selectedCourses = JSON.parse(saved);
     }
 }
