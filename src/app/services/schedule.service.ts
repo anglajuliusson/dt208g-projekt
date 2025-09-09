@@ -11,7 +11,7 @@ export class ScheduleService {
     // Läs in från localstorage
     const saved = localStorage.getItem('myschedule'); 
     if (saved) { this.selectedCourses = JSON.parse(saved);
-  }
+    }
 }
 
 // Hämta kopia av valda kurser
@@ -36,6 +36,6 @@ removeCourse(courseCode: string) {
 }
 // Spara till localStorage
 private save() {
-  localStorage.setItem('myScedule', JSON.stringify(this.selectedCourses));
+  localStorage.setItem('mySchedule', JSON.stringify(this.selectedCourses));
 }
 }
