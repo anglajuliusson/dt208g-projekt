@@ -25,6 +25,10 @@ export class CoursesComponent {
 
   ngOnInit() {
     this.loadCourses();
+
+    // Hämta redan valda kurser från service/localStorage så att knappen är markerad
+    const savedCourses = this.scheduleService.getCourses();
+    this.clickedCourses = savedCourses.map(c => c.courseCode);
   }
 
   loadCourses() {
