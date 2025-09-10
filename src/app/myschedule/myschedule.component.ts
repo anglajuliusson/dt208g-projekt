@@ -34,8 +34,18 @@ export class MyscheduleComponent {
 
   // Ta bort kurs och uppdatera listan
   removeCourse(courseCode: string) {
-    this.scheduleService.removeCourse(courseCode);
-    this.selectedCourses = this.scheduleService.getCourses();
+   // Ta bort kurs från service
+  this.scheduleService.removeCourse(courseCode);
+
+  // Uppdatera selectedCourses med den nya listan
+  this.selectedCourses = this.scheduleService.getCourses();
+
+  // Uppdatera dropdown för ämnen
+  const allSubjects = this.selectedCourses.map(course => course.subject);
+  this.subjects = Array.from(new Set(allSubjects));
+
+  // Uppdatera filtrerad/sorterad lista
+  this.filterData();
   }
   // Filtrerar data direkt när användaren skriver
   filterData() {
