@@ -11,6 +11,9 @@
         <option *ngFor="let subj of subjects" [value]="subj">{{ subj }}</option></select>
 </div>
 </div>
+<div>
+    <h4>Visar {{ sortedCourseList.length }} av {{ courselist.length }} kurser</h4>
+</div>
 <div class="courses">
     <table>
         <thead>
