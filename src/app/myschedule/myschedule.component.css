@@ -77,20 +77,38 @@ td button {
         justify-content: left;
         align-items: center;
     }
-    
-      table {
-        width: 100%;
-        font-size: x-small;
-      }
-    
-      th, td {
-        padding: 10px;
-      }
-    
-      td button {
-        padding: 0.4em;
-        max-width: 70px;
-        width: 100%; 
-        font-size: x-small;
-      }
+    td button {
+      padding: 0.4em;
+      max-width: 70px;
+      width: 100%; 
+      font-size: x-small;
+    }
+    table {
+      font-size: small;
+      text-align: left;
+      justify-content: center;
+      align-items: center;
+      max-width: 500px;
+      width: 100%;
+    }
+    table thead {
+      display: none; 
+    }
+    table tr {
+      display: block;
+      margin-bottom: 1em;
+      border: 1px solid #ccc;
+      padding: 0.5em;
+    }
+    table td {
+      display: flex;
+      justify-content: flex-start;
+      padding: 0.5em;
+      border: none;
+      border-bottom: 1px solid #eee;
+    }
+    table td::before {
+      content: attr(data-label);
+      font-weight: bold;
+    }
 }
