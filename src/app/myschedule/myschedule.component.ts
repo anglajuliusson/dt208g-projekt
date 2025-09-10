@@ -80,4 +80,9 @@ export class MyscheduleComponent {
       return this.sortCourseList ? strA.localeCompare(strB) : strB.localeCompare(strA);
     });
   }
+
+  // Summera poängen för alla kurser i listan
+  get totalPoints(): number {
+    return this.sortedCourseList.reduce((sum, course) => sum + Number(course.points), 0);
+  }
 }
