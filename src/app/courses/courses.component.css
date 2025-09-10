@@ -51,6 +51,7 @@ td button {
     border-radius: 5px;
     padding: 0.5em;
     width: 100px;
+    cursor: pointer;
 }
 /* Avvikande storlekar vid mindre skärm*/
 @media (max-width:1024px) {
