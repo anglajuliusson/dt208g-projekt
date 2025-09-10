@@ -53,6 +53,10 @@ td button {
     width: 100px;
     cursor: pointer;
 }
+td button.clicked {
+  background-color: rgb(183, 133, 229); /* ljuslila om markerad */
+  border-color: rgb(183, 133, 229);
+}
 /* Avvikande storlekar vid mindre skärm*/
 @media (max-width:1024px) {
     input, select {
