@@ -19,6 +19,7 @@ export class CoursesComponent {
   sortCourseList: boolean = true; // Stigande, fallande
   subjects: string[] = []; // Array med ämnen till dropdown
   selectedSubject: string = ''; // Det valda ämnet, tom sträng = visar alla ämnen
+  clickedCourses: string[] = []; // Sparar vilka kurser som är markerade/”klara”
 
   constructor(private http: HttpClient, private scheduleService: ScheduleService) {}
 
@@ -76,8 +77,14 @@ export class CoursesComponent {
       return this.sortCourseList ? strA.localeCompare(strB) : strB.localeCompare(strA);
     });
   }
-  // Lägg till kurs i ramschema
-  addToSchedule(course: Courses) {
+  // Lägg till kurs i ramschema och markera tillagd kurs
+  addToScheduleAndMark(course: Courses) {
+    // Lägg till kurs om den inte redan finns
     this.scheduleService.addCourse(course);
+  
+    // Markera knappen som klickad (som “completed”)
+    if (!this.clickedCourses.includes(course.courseCode)) {
+      this.clickedCourses.push(course.courseCode);
+    }
   }
 }
