@@ -30,7 +30,8 @@
                 <td>{{ courses.points}}</td>
                 <td>{{ courses.subject}}</td>
                 <td><a [href]="courses.syllabus" target="_blank">Kursplan</a></td>
-                <td><button (click)="addToSchedule(courses)">Lägg till</button></td>
+                <td><button (click)="addToScheduleAndMark(courses)"
+                    [class.clicked]="clickedCourses.includes(courses.courseCode)">Lägg till</button></td>
             </tr>
         </tbody>
     </table>
