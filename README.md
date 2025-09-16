@@ -1,5 +1,5 @@
 # Projektbeskrivning
-Detta projekt går ut på att skapa en webb-applikation med Angular och TypeScript till ett fiktivt lärosäte där studenter kan söka bland kurser och skapa ett ett ramschema. Funktionalitet för sortering och filtrering av kurser inkluderas. 
+Detta projekt går ut på att skapa en webb-applikation med Angular och TypeScript till ett fiktivt lärosäte där studenter kan söka bland kurser och skapa ett eget ramschema. Funktionalitet för sortering och filtrering av kurser inkluderas. 
 
 Detta projekt uppfyller grundkrafven och det har varit målet. Något jag lagt till som ej stod med i projektbeskrivningen är att man även kan sortera och filtrera kurserna som lagts till i ramshcemat.
 
